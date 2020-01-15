@@ -1,0 +1,41 @@
+{
+  "name": "react-todo-ts",
+  "version": "1.0.0",
+  "description": "React ToDo App with TypeScript.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=11.0.0",
+    "npm": ">=6.0"
+  },
+  "main": "src/index.tsx",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
+    "shortid": "2.2.15"
+  },
+  "devDependencies": {
+    "@types/react": "16.9.11",
+    "@types/react-dom": "16.9.4",
+    "@types/shortid": "^0.0.29",
+    "react-scripts": "3.2.0",
+    "typescript": "3.7.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
