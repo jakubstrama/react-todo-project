@@ -17,12 +17,14 @@
   "dependencies": {
     "react": "16.11.0",
     "react-dom": "16.11.0",
+    "react-redux": "7.2.0",
     "shortid": "2.2.15"
   },
   "devDependencies": {
     "@types/react": "16.9.11",
     "@types/react-dom": "16.9.4",
     "@types/shortid": "^0.0.29",
+    "@types/react-redux": "7.1.9",
     "react-scripts": "3.2.0",
     "typescript": "3.7.2"
   },

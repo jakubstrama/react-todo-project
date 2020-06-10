@@ -1,15 +1,12 @@
-// Import dependencies
 import * as React from 'react'
-
-// Import TodoItem
 import TodoItem from './todo-item'
-
-// Import interfaces
 import {TodoInterface} from '../interfaces'
 import TodoForm from "./todo-form";
+import {pushTodosAction} from "../actions";
 
 interface TodoListProps {
   listTitle: string;
+  store: any;
 }
 
 class TodoList extends React.Component<TodoListProps, {}> {
@@ -17,12 +14,24 @@ class TodoList extends React.Component<TodoListProps, {}> {
   filteredTodos: TodoInterface[];
   todos: TodoInterface[];
   listTitle: string;
+  store: any;
 
   constructor(props: any) {
     super(props);
     this.listTitle = props.listTitle;
+    this.store = props.store;
     this.todos = [];
     this.filteredTodos = this.todos;
+
+    this.store.subscribe(this.handleChange);
+  }
+
+  handleChange = () => {
+    const currentValue = this.store.getState();
+    if (currentValue) {
+      this.todos = currentValue;
+      this.showAllItems();
+    }
   }
 
   handleTodoCreate = (todo: TodoInterface) => {
@@ -66,6 +75,7 @@ class TodoList extends React.Component<TodoListProps, {}> {
   updateLists = (list: TodoInterface[]) => {
     this.todos = list;
     this.filteredTodos = [...list];
+    this.pushList();
     this.forceUpdate();
   }
 
@@ -76,6 +86,11 @@ class TodoList extends React.Component<TodoListProps, {}> {
       event.target.classList.remove('todo-input-error')
     }
   }
+
+  pushList = () => {
+    this.store.dispatch(pushTodosAction(this.todos));
+  }
+
 
 // TodoList component
   render = () => {

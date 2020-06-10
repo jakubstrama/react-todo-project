@@ -3,7 +3,7 @@ import * as React from 'react'
 import shortid from 'shortid'
 
 // Import interfaces
-import {TodoInterface, TodoFormInterface} from './../interfaces'
+import {TodoInterface, TodoFormInterface} from '../interfaces'
 
 // Todo form component
 const TodoForm = (props: TodoFormInterface) => {
